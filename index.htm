@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WisdomSite - Trinity Contradictions Analysis</title>
+    <meta name="description" content="Philosophical analysis of Trinity contradictions through metaphysics, logic, and biblical evidence.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%2322c55e'/><text x='50' y='60' text-anchor='middle' fill='black' font-size='40'>W</text></svg>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Inline Backup Styles -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #000; color: #fff; line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(34,197,94,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(239,68,68,0.1) 0%, transparent 50%);
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        
+        /* Header */
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(0,0,0,0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid #111;
+        }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { display: flex; align-items: center; font-size: 1.5rem; font-weight: 700; }
+        .logo-icon {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            color: #000; display: flex; align-items: center; justify-content: center;
+            margin-right: 0.5rem; box-shadow: 0 0 20px rgba(34,197,94,0.3);
+        }
+        .nav-menu { display: flex; list-style: none; gap: 1.5rem; }
+        .nav-link {
+            padding: 0.5rem 1rem; border-radius: 8px; color: #ccc;
+            text-decoration: none; transition: 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: rgba(34,197,94,0.1); border-color: #16a34a;
+            box-shadow: 0 0 15px rgba(34,197,94,0.2); color: #86efac;
+        }
+        
+        /* Mobile Menu */
+        .mobile-toggle { display: none; flex-direction: column; cursor: pointer; }
+        .mobile-toggle span { width: 25px; height: 3px; background: #fff; margin: 3px 0; }
+        
+        /* Hero */
+        .hero {
+            padding: calc(80px + 4rem) 0 4rem; text-align: center;
+            background: linear-gradient(135deg, #000, #0a0a0a, #000);
+        }
+        .hero h1 { 
+            font-size: 3.5rem; font-weight: 700;
+            background: linear-gradient(135deg, #fff, #86efac);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(34,197,94,0.3);
+        }
+        .hero-subtitle { font-size: 1.5rem; color: #86efac; margin-bottom: 1rem; }
+        .hero-description { font-size: 1.125rem; max-width: 600px; margin: 0 auto 2rem; color: #ccc; }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.75rem 1.5rem; border-radius: 8px;
+            font-weight: 500; cursor: pointer; transition: 0.3s ease;
+            text-decoration: none; border: none;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            color: #000;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(34,197,94,0.3); }
+        .btn-secondary {
+            background: transparent; color: #fff; border: 2px solid #16a34a;
+        }
+        .btn-secondary:hover { background: #16a34a; color: #000; }
+        
+        /* Sections */
+        .section { padding: 4rem 0; }
+        .bg-dark { background: #111; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { 
+            font-size: 2.5rem; color: #86efac; 
+            text-shadow: 0 0 20px rgba(34,197,94,0.3); 
+        }
+        .section-header p { font-size: 1.125rem; max-width: 600px; margin: 0 auto; color: #ccc; }
+        
+        /* Content Grid */
+        .content-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem; margin-top: 2rem;
+        }
+        .content-card {
+            background: linear-gradient(135deg, #111, #0a0a0a);
+            padding: 2rem; border-radius: 8px;
+            border: 1px solid #111; transition: 0.3s ease;
+            position: relative; overflow: hidden;
+        }
+        .content-card:hover {
+            transform: translateY(-8px); border-color: #16a34a;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(34,197,94,0.2);
+        }
+        .content-card.red-accent { border-left: 4px solid #ef4444; }
+        .content-card.green-accent { border-left: 4px solid #22c55e; }
+        .card-icon {
+            font-size: 2.5rem; margin-bottom: 1rem;
+            background: linear-gradient(135deg, #22c55e, #ef4444);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .card-link { color: #86efac; font-weight: 600; text-decoration: none; }
+        .card-link:hover { transform: translateX(4px); }
+        
+        /* Argument Boxes */
+        .premise-box {
+            background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(34,197,94,0.05));
+            border: 2px solid #16a34a; border-radius: 8px;
+            padding: 1.5rem; margin: 1rem 0; position: relative;
+        }
+        .premise-box h4 { color: #86efac; }
+        
+        .conclusion-box {
+            background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(239,68,68,0.05));
+            border: 2px solid #dc2626; border-radius: 8px;
+            padding: 1.5rem; margin: 1rem 0; position: relative;
+        }
+        .conclusion-box h4 { color: #fca5a5; }
+        
+        .argument-box {
+            background: rgba(255,255,255,0.05); border: 2px solid #ccc;
+            border-radius: 8px; padding: 1.5rem; margin: 1rem 0;
+        }
+        
+        /* Bible Verses */
+        .bible-verse {
+            background: #0a0a0a; border-left: 4px solid #ef4444;
+            padding: 1.5rem; margin: 1rem 0; border-radius: 8px;
+        }
+        .verse-text { font-style: italic; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .verse-reference { font-weight: 600; color: #fca5a5; font-size: 0.9rem; }
+        
+        /* Footer */
+        .footer {
+            background: #0a0a0a; border-top: 1px solid #111;
+            padding: 2rem 0 1rem;
+        }
+        .footer-content {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem; margin-bottom: 2rem;
+        }
+        .footer-section h4 { color: #86efac; margin-bottom: 1rem; }
+        .footer-section a {
+            color: #ccc; display: block; margin-bottom: 0.5rem;
+            text-decoration: none; transition: 0.3s ease;
+        }
+        .footer-section a:hover { color: #86efac; padding-left: 0.5rem; }
+        .footer-bottom {
+            border-top: 1px solid #111; padding-top: 1rem;
+            text-align: center; color: #ccc;
+        }
+        
+        /* Utilities */
+        .text-center { text-align: center; }
+        .mt-2 { margin-top: 1rem; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .mobile-toggle { display: flex; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .content-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-icon">W</div>
+                    <span>WisdomSite</span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="metaphysics.html" class="nav-link">Metaphysics</a></li>
+                    <li><a href="logical-issues.html" class="nav-link">Logical Issues</a></li>
+                    <li><a href="bible-contradictions.html" class="nav-link">Bible Contradictions</a></li>
+                </ul>
+                
+                <div class="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>WisdomSite</h1>
+                    <p class="hero-subtitle">Trinity Contradictions Analysis</p>
+                    <p class="hero-description">A comprehensive examination of the logical, metaphysical, and biblical contradictions within the Christian Trinity doctrine</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="metaphysics.html" class="btn btn-primary">Start Analysis</a>
+                        <a href="#overview" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="section" id="overview">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Analysis Overview</h2>
+                    <p>Three critical perspectives on Trinity doctrine contradictions</p>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="content-card red-accent">
+                        <div class="card-icon">⚖️</div>
+                        <h3>Metaphysical Contradictions</h3>
+                        <p>Examining how the Trinity violates fundamental laws of logic including non-contradiction, identity, and divine simplicity.</p>
+                        <a href="metaphysics.html" class="card-link">Explore Metaphysics →</a>
+                    </div>
+                    
+                    <div class="content-card green-accent">
+                        <div class="card-icon">🧠</div>
+                        <h3>Logical Issues</h3>
+                        <p>The paradox of three-in-one, divine simplicity vs plurality, and problems with personal identity and individuation.</p>
+                        <a href="logical-issues.html" class="card-link">View Logic Issues →</a>
+                    </div>
+                    
+                    <div class="content-card red-accent">
+                        <div class="card-icon">📖</div>
+                        <h3>Biblical Contradictions</h3>
+                        <p>Jesus never claimed to be God. Biblical verses showing clear distinction between Jesus and God the Father.</p>
+                        <a href="bible-contradictions.html" class="card-link">Read Scripture →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Arguments Section -->
+        <section class="section bg-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Key Arguments</h2>
+                    <p>The fundamental contradictions that challenge Trinity doctrine</p>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="premise-box">
+                        <h4>Law of Non-Contradiction</h4>
+                        <p>Something cannot be both fully God and not-God in the same sense at the same time. If Father, Son, and Spirit are each fully God and also one God, it creates self-contradictory status.</p>
+                    </div>
+                    
+                    <div class="conclusion-box">
+                        <h4>Law of Identity</h4>
+                        <p>Asserting "three divine persons" within one God complicates divine identity, requiring multiple, numerically distinct, identical referents under one name.</p>
+                    </div>
+                    
+                    <div class="argument-box">
+                        <h4>Divine Simplicity</h4>
+                        <p>God's nature should be simple without parts or persons. Introducing three distinct persons within God complicates divine nature, violating metaphysical simplicity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Biblical Evidence Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Biblical Evidence</h2>
+                    <p>Jesus never directly claimed to be God - Scripture shows clear distinctions</p>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="bible-verse">
+                        <div class="verse-text">"My Father is greater than I."</div>
+                        <div class="verse-reference">John 14:28</div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        <div class="verse-text">"Why do you call me good? No one is good—except God alone."</div>
+                        <div class="verse-reference">Mark 10:18</div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        <div class="verse-text">"That they may know you, the only true God, and Jesus Christ, whom you have sent."</div>
+                        <div class="verse-reference">John 17:3</div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-2">
+                    <p>Each verse shows Jesus worshiped, obeyed, and prayed to God, never equating himself as God.</p>
+                    <a href="bible-contradictions.html" class="btn btn-primary">View All Biblical Evidence</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary Section -->
+        <section class="section bg-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>The Verdict</h2>
+                    <p>Multiple lines of evidence converge on the same conclusion</p>
+                </div>
+                
+                <div class="conclusion-box">
+                    <h4>Trinity Doctrine is Incoherent</h4>
+                    <p>The Christian Trinity doctrine fails on multiple fronts:</p>
+                    <ul>
+                        <li><strong>Metaphysically:</strong> Violates fundamental laws of logic and divine simplicity</li>
+                        <li><strong>Logically:</strong> Creates unsolvable paradoxes and identity problems</li>
+                        <li><strong>Biblically:</strong> Contradicts Jesus' own words and scriptural monotheism</li>
+                    </ul>
+                    <p class="mt-2">The evidence demonstrates that the Trinity is a later theological construct that cannot be reconciled with reason, logic, or Scripture.</p>
+                </div>
+                
+                <div class="text-center mt-2">
+                    <a href="metaphysics.html" class="btn btn-primary">Begin Full Analysis</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <div class="logo-icon">W</div>
+                        <span>WisdomSite</span>
+                    </div>
+                    <p>Rigorous analysis of religious doctrines through philosophical inquiry and logical examination.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Analysis</h4>
+                    <a href="metaphysics.html">Metaphysical Contradictions</a>
+                    <a href="logical-issues.html">Logical Issues</a>
+                    <a href="bible-contradictions.html">Biblical Contradictions</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Topics</h4>
+                    <a href="#trinity">Trinity Doctrine</a>
+                    <a href="#logic">Logic & Reason</a>
+                    <a href="#scripture">Biblical Analysis</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 WisdomSite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
